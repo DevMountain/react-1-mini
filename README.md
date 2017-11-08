@@ -312,6 +312,78 @@ In this step, we'll add a way to see our list of friends on the DOM by `mapping`
 
 ### Instructions
 
+* Open `src/App.js`.
+* Underneath the `Add Friend` button, use `{}` to break out of JSX and use JavaScript:
+  * Map through the `friends` array on `state` to render a `div` element that contains an `img` and a `span` element.
+  * The `img` element's `src` property should equal the value of the `friend`'s picture.
+    * Optionally you can control the maximum width/height by using the width/height propertys on the `img` element.
+  * The `span` element should display the `friend`'s name.
+  * Be sure to assign a `key` on the parent div. This is a requirement from React.
+
+### Solution
+
+<details>
+
+<summary> <code> src/App.js </code> </summary>
+
+```js
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      friends: [],
+      picture: '',
+      name: ''
+    };
+  }
+
+  updateState( key, value ) {
+    this.setState({ [key]: value });
+  }
+
+  addFriend() {
+    const { friends, picture, name } = this.state;
+    this.setState({ friends: [ ...friends, { picture, name } ], picture: '', name: '' });
+  }
+
+  render() {
+    return (
+      <div>
+        <span>Picture:</span>
+        <input onChange={ ( e ) => this.updateState( 'picture', e.target.value ) } value={ this.state.picture } />
+
+        <span>Name:</span>
+        <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } value={ this.state.name } />
+
+        <button onClick={ () => this.addFriend() }>Add Friend</button>
+
+        {
+          this.state.friends.map( ( friend, index ) => (
+            <div key={ `friend-${ index }-${ friend.name }` }>
+              <img width="100px" src={ friend.picture } />
+              <span>{ friend.name }</span>
+            </div>
+          ))
+        }
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+</details>
+
+<br />
+
+<img src="https://github.com/DevMountain/react-1-mini/blob/solution/readme-assets/4g.gif" />
+
 ## Contributions
 
 If you see a problem or a typo, please fork, make the necessary changes, and create a pull request so we can review your changes and merge them into the master repo and branch.

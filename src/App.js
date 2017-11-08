@@ -23,9 +23,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('Value for picture on state:', this.state.picture);
-    console.log('Value for name on state:', this.state.name);
-    console.log('Value for friends on state:', this.state.friends);
     return (
       <div>
         <span>Picture:</span>
@@ -35,6 +32,15 @@ class App extends Component {
         <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } value={ this.state.name } />
 
         <button onClick={ () => this.addFriend() }>Add Friend</button>
+
+        {
+          this.state.friends.map( ( friend, index ) => (
+            <div key={ `friend-${ index }-${ friend.name }` }>
+              <img width="100px" src={ friend.picture } />
+              <span>{ friend.name }</span>
+            </div>
+          ))
+        }
       </div>
     );
   }

@@ -17,9 +17,15 @@ class App extends Component {
     this.setState({ [key]: value });
   }
 
+  addFriend() {
+    const { friends, picture, name } = this.state;
+    this.setState({ friends: [ ...friends, { picture, name } ], picture: '', name: '' });
+  }
+
   render() {
     console.log('Value for picture on state:', this.state.picture);
     console.log('Value for name on state:', this.state.name);
+    console.log('Value for friends on state:', this.state.friends);
     return (
       <div>
         <span>Picture:</span>
@@ -28,7 +34,7 @@ class App extends Component {
         <span>Name:</span>
         <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } value={ this.state.name } />
 
-        <button>Add Friend</button>
+        <button onClick={ () => this.addFriend() }>Add Friend</button>
       </div>
     );
   }

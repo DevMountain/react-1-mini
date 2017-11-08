@@ -243,6 +243,75 @@ In this step, we'll create method for adding a friend to the `friends` array on 
 
 ### Instructions
 
+* Open `src/App.js`.
+* Underneath the `updateState` method, create a new method called `addFriend`:
+  * This method should use `this.setState` to add a new friend object to the `friends` array on state.
+    * An example of the `friend object` would look like: `{ picture: 'http://via.placeholder.com/50x50', name: 'James Lemire' }`
+  * This method should use `this.setState` to clear the values of `picture` and `name` on state.
+* Add an `onClick` property that calls the `addFriend` method to the `button` element.
+  * You must either use an arrow function or bind this in order to keep the correct context of this.
+
+### Solution
+
+<details>
+
+<summary> <code> src/App.js </code> </summary>
+
+```js
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      friends: [],
+      picture: '',
+      name: ''
+    };
+  }
+
+  updateState( key, value ) {
+    this.setState({ [key]: value });
+  }
+
+  addFriend() {
+    const { friends, picture, name } = this.state;
+    this.setState({ friends: [ ...friends, { picture, name } ], picture: '', name: '' });
+  }
+
+  render() {
+    return (
+      <div>
+        <span>Picture:</span>
+        <input onChange={ ( e ) => this.updateState( 'picture', e.target.value ) } value={ this.state.picture } />
+
+        <span>Name:</span>
+        <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } value={ this.state.name } />
+
+        <button onClick={ () => this.addFriend() }>Add Friend</button>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+</details>
+
+<br />
+
+<img src="https://github.com/DevMountain/react-1-mini/blob/solution/readme-assets/3g.gif" />
+
+## Step 7
+
+In this step, we'll add a way to see our list of friends on the DOM by `mapping` through the `friends` array on `state`.
+
+### Instructions
+
 ## Contributions
 
 If you see a problem or a typo, please fork, make the necessary changes, and create a pull request so we can review your changes and merge them into the master repo and branch.

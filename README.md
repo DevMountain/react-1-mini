@@ -4,6 +4,10 @@
 
 In this project, we'll introduce you to React by creating a small project from scratch. We'll make use of the `create-react-app` CLI tool to quickly generate a React boilerplate. The goal of this project is to create a simple interface for creating a list of friends with their name and picture.
 
+## Live Example
+
+<a href="https://devmountain.github.io/react-1-mini/">Click Me!</a>
+
 ## Setup
 
 * Fork and clone this repository.

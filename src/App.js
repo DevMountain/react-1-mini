@@ -12,15 +12,7 @@ class App extends Component {
       name: ''
     };
   }
-
-  updatePicture( value ) {
-    this.setState({ picture: value });
-  }
-
-  updateName( value ) {
-    this.setState({ name: value });
-  }
-
+  
   render() {
     return (
       <div>

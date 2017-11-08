@@ -116,7 +116,7 @@ export default App;
 
 ### Summary
 
-In this step, we'll add a `state` to our `src/App.js` for managing a list of friends and also the values for creating a new friend. We'll also create a few methods of our own for updating state. One will be called `updatePicture`, this method is responsible for updating the value of `picture` on `state`. Another will be called `updateName`, this method is responsible for updating the value of `name` on `state.` And the last will be called `addFriend`, this method is responsbile for adding a new friend to the `friends` array on `state` and clearing the values for `picture` and `name` on `state`.
+In this step, we'll add a `state` to our `src/App.js` for managing a list of friends and also the values for creating a new friend. 
 
 ### Instructions
 
@@ -128,17 +128,6 @@ In this step, we'll add a `state` to our `src/App.js` for managing a list of fri
   * `friends` - An empty array.
   * `picture` - An empty string.
   * `name` - An empty string.
-* Underneath the `constructor` method, create a new method called `updatePicture`:
-  * This method should have a `value` parameter.
-  * This method should update `picture` on `state` by using `this.setState()`.
-* Underneath the `updatePicture` method, create a new method called `updateName`:
-  * This method should have a `value` parameter.
-  * This method should update `name` on `state` by using `this.setState()`.
-* Underneath the `updateName` method, create a new method called `addFriend`:
-  * This method doesn't need any parameters.
-  * This method should use `this.setState()` to push a new friend object into the `friends` array on `state` and clear the values of `picture` and `name` on `state`.
-    * A friend object should have a `picture` and `name` key.
-      * { picture: "http://via.placeholder.com/50x50", name: "James Lemire" }
 
 ### Solution
 
@@ -147,7 +136,37 @@ In this step, we'll add a `state` to our `src/App.js` for managing a list of fri
 <summary> <code> src/App.js </code> </summary>
 
 ```js
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      friends: [],
+      picture: '',
+      name: ''
+    };
+  }
+  
+  render() {
+    return (
+      <div>
+        <span>Picture:</span>
+        <input />
+
+        <span>Name:</span>
+        <input />
+
+        <button>Add Friend</button>
+      </div>
+    );
+  }
+}
+
+export default App;
 ```
 
 </details>

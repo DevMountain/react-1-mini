@@ -12,15 +12,21 @@ class App extends Component {
       name: ''
     };
   }
-  
+
+  updateState( key, value ) {
+    this.setState({ [key]: value });
+  }
+
   render() {
+    console.log('Value for picture on state:', this.state.picture);
+    console.log('Value for name on state:', this.state.name);
     return (
       <div>
         <span>Picture:</span>
-        <input />
+        <input onChange={ ( e ) => this.updateState( 'picture', e.target.value ) } />
 
         <span>Name:</span>
-        <input />
+        <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } />
 
         <button>Add Friend</button>
       </div>

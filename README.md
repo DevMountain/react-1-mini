@@ -171,6 +171,70 @@ export default App;
 
 </details>
 
+## Step 5
+
+In this step, we'll hook up our `input` elements to `state`. In order to do this, we'll need to create a custom method to update the value of `picture` and `name` on state. In React, you should never update state explicitly. You should always use the built-in method `this.setState()`.
+
+### Instructions
+
+* Open `src/App.js`.
+* Underneath the `constructor` method, create a new method called `updateState`:
+  * This method should have two parameters: `key` and `value`.
+  * This methoud should call `this.setState` to update the given `key` with the given `value`.
+    * Hint: Objects - Bracket Notation.
+* On the first and second `input` elements, add an `onChange` property that captures the event and calls `this.updateState` with the correct key and the event's target value.
+
+
+### Solution
+
+<details>
+
+<summary> <code> src/App.js </code> </summary>
+
+```js
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      friends: [],
+      picture: '',
+      name: ''
+    };
+  }
+
+  updateState( key, value ) {
+    this.setState({ [key]: value });
+  }
+
+  render() {
+    return (
+      <div>
+        <span>Picture:</span>
+        <input onChange={ ( e ) => this.updateState( 'picture', e.target.value ) } />
+
+        <span>Name:</span>
+        <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } />
+
+        <button>Add Friend</button>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+</details>
+
+<br />
+
+<img src="https://github.com/DevMountain/react-1-mini/blob/solution/readme-assets/2g.gif" />
+
 ## Contributions
 
 If you see a problem or a typo, please fork, make the necessary changes, and create a pull request so we can review your changes and merge them into the master repo and branch.

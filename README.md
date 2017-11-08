@@ -25,6 +25,43 @@ In this step, we'll use `create-react-app` to create a React boilerplate.
 
 <img src="https://github.com/DevMountain/react-1-mini/blob/solution/readme-assets/1g.gif" />
 
+## Step 2
+
+### Summary
+
+In this step, we'll clear the boilerplate that is made for us in `src/App.js`.
+
+### Instructions
+
+* Open `src/App.js`.
+* Inside of the `return()` statement, replace everything with a single `<div>` element.
+
+### Solution
+
+<details>
+
+<summary> <code> src/App.js </code> </summary>
+
+```js
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+</details>
+
 
 ## Contributions
 

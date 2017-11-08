@@ -243,7 +243,7 @@ export default App;
 
 ### Summary
 
-In this step, we'll create method for adding a friend to the `friends` array on `state` and clear the values of `picture` and `name` on `state`.
+In this step, we'll create a method for adding a friend to the `friends` array on `state` and clear the values of `picture` and `name` on `state`.
 
 ### Instructions
 

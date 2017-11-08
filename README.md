@@ -19,10 +19,11 @@ In this step, we'll use `create-react-app` to create a React boilerplate.
 
 * `cd` into the root directory of the project.
 * Run `create-react-app ./`.
+* Delete the `README.md` the boilerplate generates and rename `README.old.md` back to `README.md`.
 
 ### Solution
 
-
+<img src="https://github.com/DevMountain/react-1-mini/blob/solution/readme-assets/1g.gif" />
 
 
 ## Contributions

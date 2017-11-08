@@ -62,6 +62,55 @@ export default App;
 
 </details>
 
+## Step 3
+
+### Summary
+
+In this step, we'll add the necessary elements inside the `<div>` element for capturing user input.
+
+### Instructions
+
+* Open `src/App.js`.
+* Inside of the `<div>` element add two inputs with lables and an `add` button:
+  * The first input should be for getting a URL to a picture.
+  * The second input should be for getting a name.
+* Run `npm start` to spin up a development server and see your changes.
+
+### Solution
+
+<details>
+
+<summary> <code> src/App.js </code> </summary>
+
+```js
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <span>Picture:</span>
+        <input />
+
+        <span>Name:</span>
+        <input />
+
+        <button>Add Friend</button>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+</details>
+
+<br />
+
+<img src="https://github.com/DevMountain/react-1-mini/blob/solution/readme-assets/1.png" />
 
 ## Contributions
 

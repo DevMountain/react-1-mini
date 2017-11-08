@@ -182,7 +182,7 @@ In this step, we'll hook up our `input` elements to `state`. In order to do this
   * This method should have two parameters: `key` and `value`.
   * This methoud should call `this.setState` to update the given `key` with the given `value`.
     * Hint: Objects - Bracket Notation.
-* On the first and second `input` elements, add an `onChange` property that captures the event and calls `this.updateState` with the correct key and the event's target value.
+* On the first and second `input` elements, add an `onChange` property that captures the event and calls `this.updateState` with the correct key and the event's target value. Also add a `value` property that equals the correct key on `state`.
 
 
 ### Solution
@@ -215,10 +215,10 @@ class App extends Component {
     return (
       <div>
         <span>Picture:</span>
-        <input onChange={ ( e ) => this.updateState( 'picture', e.target.value ) } />
+        <input onChange={ ( e ) => this.updateState( 'picture', e.target.value ) } value={ this.state.picture } />
 
         <span>Name:</span>
-        <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } />
+        <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } value={ this.state.name } />
 
         <button>Add Friend</button>
       </div>
@@ -234,6 +234,14 @@ export default App;
 <br />
 
 <img src="https://github.com/DevMountain/react-1-mini/blob/solution/readme-assets/2g.gif" />
+
+## Step 6
+
+### Summary
+
+In this step, we'll create method for adding a friend to the `friends` array on `state` and clear the values of `picture` and `name` on `state`.
+
+### Instructions
 
 ## Contributions
 

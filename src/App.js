@@ -23,10 +23,10 @@ class App extends Component {
     return (
       <div>
         <span>Picture:</span>
-        <input onChange={ ( e ) => this.updateState( 'picture', e.target.value ) } />
+        <input onChange={ ( e ) => this.updateState( 'picture', e.target.value ) } value={ this.state.picture } />
 
         <span>Name:</span>
-        <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } />
+        <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } value={ this.state.name } />
 
         <button>Add Friend</button>
       </div>

@@ -3,6 +3,24 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      friends: [],
+      picture: '',
+      name: ''
+    };
+  }
+
+  updatePicture( value ) {
+    this.setState({ picture: value });
+  }
+
+  updateName( value ) {
+    this.setState({ name: value });
+  }
+
   render() {
     return (
       <div>

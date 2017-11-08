@@ -4,7 +4,23 @@
 
 In this project, we'll introduce you to React by creating a small project from scratch. We'll make use of the `create-react-app` CLI tool to quickly generate a React boilerplate. The goal of this project is to create a simple interface for creating a list of friends with their name and picture.
 
+## Setup
+
+* Fork and clone this repository.
+* Run `sudo npm install -g create-react-app`.
+
 ## Step 1
+
+### Summary
+
+In this step, we'll use `create-react-app` to create a React boilerplate.
+
+### Instructions
+
+* `cd` into the root directory of the project.
+* Run `create-react-app ./`.
+
+### Solution
 
 
 

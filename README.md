@@ -71,7 +71,7 @@ In this step, we'll add the necessary elements inside the `<div>` element for ca
 ### Instructions
 
 * Open `src/App.js`.
-* Inside of the `<div>` element add two inputs with lables and an `add` button:
+* Inside of the `<div>` element add two inputs with lables and an `Add Friend` button:
   * The first input should be for getting a URL to a picture.
   * The second input should be for getting a name.
 * Run `npm start` to spin up a development server and see your changes.

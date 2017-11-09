@@ -120,7 +120,7 @@ export default App;
 
 ### Summary
 
-In this step, we'll add a `state` to our `src/App.js` for managing a list of friends and also the values for creating a new friend. 
+In this step, we'll initialize `state` to our `src/App.js`. The `state` object will manage a list of friends and also the values for creating a new friend. 
 
 ### Instructions
 
@@ -317,12 +317,13 @@ In this step, we'll add a way to see our list of friends on the DOM by `mapping`
 ### Instructions
 
 * Open `src/App.js`.
-* Underneath the `Add Friend` button, use `{}` to break out of JSX and use JavaScript:
+* Just above the `return()` statement, in the `render` method, create a new `const` variable called `friends`:
   * Map through the `friends` array on `state` to render a `div` element that contains an `img` and a `span` element.
   * The `img` element's `src` property should equal the value of the `friend`'s picture.
     * Optionally you can control the maximum width/height by using the width/height propertys on the `img` element.
   * The `span` element should display the `friend`'s name.
   * Be sure to assign a `key` on the parent div. This is a requirement from React.
+* Just below the `Add Friend` button, use `{}` to break out of JSX, and render the new `friends` variable.
 
 ### Solution
 
@@ -356,6 +357,13 @@ class App extends Component {
   }
 
   render() {
+    const friends = this.state.friends.map( ( friend, index ) => (
+      <div key={ `friend-${ index }-${ friend.name }` }>
+        <img width="100px" src={ friend.picture } />
+        <span>{ friend.name }</span>
+      </div>
+    ));
+
     return (
       <div>
         <span>Picture:</span>
@@ -366,14 +374,7 @@ class App extends Component {
 
         <button onClick={ () => this.addFriend() }>Add Friend</button>
 
-        {
-          this.state.friends.map( ( friend, index ) => (
-            <div key={ `friend-${ index }-${ friend.name }` }>
-              <img width="100px" src={ friend.picture } />
-              <span>{ friend.name }</span>
-            </div>
-          ))
-        }
+        { friends }
       </div>
     );
   }

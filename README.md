@@ -253,7 +253,7 @@ In this step, we'll create a method for adding a friend to the `friends` array o
     * An example of the `friend object` would look like: `{ picture: 'http://via.placeholder.com/50x50', name: 'James Lemire' }`
   * This method should use `this.setState` to clear the values of `picture` and `name` on state.
 * Add an `onClick` property that calls the `addFriend` method to the `button` element.
-  * You must either use an arrow function or bind this in order to keep the correct context of this.
+  * You must use an arrow function in order to keep the correct context of this.
 
 ### Solution
 

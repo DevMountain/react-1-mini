@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -19,6 +21,15 @@ class App extends Component {
     this.setState({ name: value });
   }
 
+  addFriend() {
+    const { friends, picture, name } = this.state;
+
+    let newFriends = friends.slice();
+    newFriends.push({ picture, name });
+
+    this.setState({ friends: newFriends, picture: '', name: '' });
+  }
+
   render() {
     return (
       <div>
@@ -28,7 +39,7 @@ class App extends Component {
         <span>Name:</span>
         <input onChange={ ( e ) => this.updateName( e.target.value ) } value={ this.state.name } />
 
-        <button>Add Friend</button>
+        <button onClick={ () => this.addFriend() }>Add Friend</button>
       </div>
     );
   }

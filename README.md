@@ -177,17 +177,21 @@ export default App;
 
 ## Step 5
 
-In this step, we'll hook up our `input` elements to `state`. In order to do this, we'll need to create a custom method to update the value of `picture` and `name` on state. In React, you should never update state explicitly. You should always use the built-in method `this.setState()`.
+In this step, we'll hook up our `input` elements to `state`. In order to do this, we'll need to create a method to update the value of `picture` and a method to update the value of `name` on state. In React, you should never update state explicitly. You should always use the built-in method `this.setState()`.
 
 ### Instructions
 
 * Open `src/App.js`.
-* Underneath the `constructor` method, create a new method called `updateState`:
-  * This method should have two parameters: `key` and `value`.
-  * This methoud should call `this.setState` to update the given `key` with the given `value`.
-    * Hint: Objects - Bracket Notation.
-* On the first and second `input` elements, add an `onChange` property that captures the event and calls `this.updateState` with the correct key and the event's target value. Also add a `value` property that equals the correct key on `state`.
-
+* Underneath the `constructor` method, create a new method called `updatePicture`:
+  * This method should have one parameter: `value`.
+  * This methoud should call `this.setState` to update `picture` with the given `value`.
+* Underneath the `updatePicture` method, create a new method called `updateName`:
+  * This method should have one parameter: `value`.
+  * This method should call `this.setState` to update `name` with the given `value`.
+* On the first input element:
+  * Add an `onChange` property that captures the event's value and calls `updatePicture` with that value.
+* On the second input element:
+  * Add an `onChange` property that captures the event's value and calls `updateName` with that value.
 
 ### Solution
 
@@ -211,18 +215,22 @@ class App extends Component {
     };
   }
 
-  updateState( key, value ) {
-    this.setState({ [key]: value });
+  updatePicture( value ) {
+    this.setState({ picture: value });
+  }
+
+  updateName( value ) {
+    this.setState({ name: value });
   }
 
   render() {
     return (
       <div>
         <span>Picture:</span>
-        <input onChange={ ( e ) => this.updateState( 'picture', e.target.value ) } value={ this.state.picture } />
+        <input onChange={ ( e ) => this.updatePicture( e.target.value ) } value={ this.state.picture } />
 
         <span>Name:</span>
-        <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } value={ this.state.name } />
+        <input onChange={ ( e ) => this.updateName( e.target.value ) } value={ this.state.name } />
 
         <button>Add Friend</button>
       </div>

@@ -11,34 +11,24 @@ class App extends Component {
     };
   }
 
-  updateState( key, value ) {
-    this.setState({ [key]: value });
+  updatePicture( value ) {
+    this.setState({ picture: value });
   }
 
-  addFriend() {
-    const { friends, picture, name } = this.state;
-    this.setState({ friends: [ ...friends, { picture, name } ], picture: '', name: '' });
+  updateName( value ) {
+    this.setState({ name: value });
   }
 
   render() {
-    const friends = this.state.friends.map( ( friend, index ) => (
-      <div key={ `friend-${ index }-${ friend.name }` }>
-        <img width="100px" src={ friend.picture } />
-        <span>{ friend.name }</span>
-      </div>
-    ));
-
     return (
       <div>
         <span>Picture:</span>
-        <input onChange={ ( e ) => this.updateState( 'picture', e.target.value ) } value={ this.state.picture } />
+        <input onChange={ ( e ) => this.updatePicture( e.target.value ) } value={ this.state.picture } />
 
         <span>Name:</span>
-        <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } value={ this.state.name } />
+        <input onChange={ ( e ) => this.updateName( e.target.value ) } value={ this.state.name } />
 
-        <button onClick={ () => this.addFriend() }>Add Friend</button>
-
-        { friends }
+        <button>Add Friend</button>
       </div>
     );
   }

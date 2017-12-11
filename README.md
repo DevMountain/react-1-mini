@@ -256,7 +256,7 @@ In this step, we'll create a method for adding a friend to the `friends` array o
 ### Instructions
 
 * Open `src/App.js`.
-* Underneath the `updateState` method, create a new method called `addFriend`:
+* Underneath the `updateName` method, create a new method called `addFriend`:
   * This method should use `this.setState` to add a new friend object to the `friends` array on state.
     * An example of the `friend object` would look like: `{ picture: 'http://via.placeholder.com/50x50', name: 'James Lemire' }`
   * This method should use `this.setState` to clear the values of `picture` and `name` on state.
@@ -285,23 +285,31 @@ class App extends Component {
     };
   }
 
-  updateState( key, value ) {
-    this.setState({ [key]: value });
+  updatePicture( value ) {
+    this.setState({ picture: value });
+  }
+
+  updateName( value ) {
+    this.setState({ name: value });
   }
 
   addFriend() {
     const { friends, picture, name } = this.state;
-    this.setState({ friends: [ ...friends, { picture, name } ], picture: '', name: '' });
+
+    let newFriends = friends.slice();
+    newFriends.push({ picture, name });
+
+    this.setState({ friends: newFriends, picture: '', name: '' });
   }
 
   render() {
     return (
       <div>
         <span>Picture:</span>
-        <input onChange={ ( e ) => this.updateState( 'picture', e.target.value ) } value={ this.state.picture } />
+        <input onChange={ ( e ) => this.updatePicture( e.target.value ) } value={ this.state.picture } />
 
         <span>Name:</span>
-        <input onChange={ ( e ) => this.updateState( 'name', e.target.value ) } value={ this.state.name } />
+        <input onChange={ ( e ) => this.updateName( e.target.value ) } value={ this.state.name } />
 
         <button onClick={ () => this.addFriend() }>Add Friend</button>
       </div>

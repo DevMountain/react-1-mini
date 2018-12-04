@@ -295,7 +295,11 @@ class App extends Component {
 
   addFriend() {
     const { friends, picture, name } = this.state;
-    this.setState({ friends: [...friends, { picture, name }], picture: '', name: '' });
+
+    let newFriends = friends.slice();
+    newFriends.push({ picture, name });
+
+    this.setState({ friends: newFriends, picture: '', name: '' });
   }
 
   render() {
@@ -369,7 +373,11 @@ class App extends Component {
 
   addFriend() {
     const { friends, picture, name } = this.state;
-    this.setState({ friends: [...friends, { picture, name }], picture: '', name: '' });
+
+    let newFriends = friends.slice();
+    newFriends.push({ picture, name });
+
+    this.setState({ friends: newFriends, picture: '', name: '' });
   }
 
   render() {
